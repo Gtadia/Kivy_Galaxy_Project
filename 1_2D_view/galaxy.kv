@@ -1,0 +1,22 @@
+#:kivy 2.1.0
+
+MainWidget:
+
+<MainWidget>:
+    perspective_point_x: self.width/2
+    perspective_point_y: self. height * 0.75        # 1
+    # 2
+
+
+
+
+
+# 1
+# Because we've created perspective_point_x and perspective_point_y attributes inside of the python file, we
+# can use these custom attributes inside of the .kv file
+
+# 2
+# How is it possible that putting on our custom attributes of "perspective_point_" for x and y in the kivy
+# file automatically update?
+    # It's because these attributes are binding, meaning that whatever changes are made to attributes,
+    # it will automatically update the attribute with the new data.

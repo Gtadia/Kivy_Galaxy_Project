@@ -1,0 +1,48 @@
+#:kivy 2.1.0
+#:import menu menu
+# 1
+
+MainWidget:
+
+<MainWidget>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            source: "images/bg1.jpg"    # 2
+
+    menu_widget: menu_widget        # 4 (b)
+    perspective_point_x: self.width/2
+    perspective_point_y: self.height * 0.75
+
+    MenuWidget:
+        # 3
+        id: menu_widget             # 4 (a)
+
+    Label:
+        # 5
+        text: root.Score_TXT
+        font_size: dp(20)
+        font_name: "fonts/Eurostile.ttf"
+
+        size_hint: 0.2, 0.2
+        pos_hint: {"x": 0, "top": 1}
+
+
+
+# 1
+# This is how you import other files ("#:")
+
+# 2
+# In order to show the image in the background, we are going to create a canvas BEFORE anything else so that it's in the background.
+# Then we are going to make a rectangle that fills up the entire window.
+# Then we are going to have the rectangle display the image.
+
+# 3
+# We are using the MainWidget class/widget within the "menu.kv" file
+
+# 4
+# We are using an ID to access it within the main.py file so that we can change its opacity
+
+# 5
+# We are displaying the score
+# (This goes after the menu so that it is displayed on top of the menu so that we can see it after the game is over/before the game starts)

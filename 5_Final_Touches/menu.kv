@@ -1,0 +1,37 @@
+<MenuWidget>:
+    canvas.before:
+        # 1
+        Color:
+            rgba: 0, 0, 0, 0.8
+        Rectangle:
+            size: self.size
+    Label:
+        font_size: dp(60)
+        font_name: "fonts/Sackers-Gothic-Std-Light.ttf"
+        text: root.parent.menu_title    # 2(a)
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+    Button:
+        font_size: dp(30)
+        font_name: "fonts/Eurostile.ttf"
+        text: root.parent.menu_button_title   # 2(b)
+        pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        size_hint: 0.2, 0.15
+        on_press: root.parent.on_menu_button_pressed()  # 3
+        background_normal: ""                           # 4
+        background_color: 1, 0.3, 0.4, 0.8
+
+
+# 1
+# The semi-transparent background for the menu
+
+# 2
+# We can directly put the string property within the attributes so that we can change it within "main.py"
+    # We needed the parent because the root is "MenuWidget" and the parent of MenuWidget is "MainWidget"
+
+# 3
+# We implement the on_press button functionality in "main.py" because that's the parent
+
+# 4
+# We need "background_normal" in order to remove the previous/default background styling.
+# If we don't remove it, we would be mixing "background_color" with the default background color (and styling) instead of
+# using the new background color.
